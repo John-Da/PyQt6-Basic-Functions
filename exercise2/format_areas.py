@@ -10,7 +10,7 @@ sets = 11
 print('radius\theight\tsurface_area')
 
 for i in range(1, sets):
-    print(f"{i}\t{i*2}\t{calculation(i, i*2):.2f}")
+    print(f"{i:6}\t{i*2:6}\t{calculation(i, i*2):12.2f}")
 
 
 
