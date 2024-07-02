@@ -1,5 +1,6 @@
 def creat_profile(name, age, occupation="student"):
-    print(f"Name: {name}, Age: {age}, Occupation: {occupation}", end="")
+    return f"Name: {name}, Age: {age}, Occupation: {occupation}"
+    
 
 
 print(creat_profile("Alice", 25))
