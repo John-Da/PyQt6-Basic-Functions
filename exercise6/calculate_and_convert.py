@@ -1,6 +1,3 @@
-
-
-
 def calculate_and_convert(num1, num2):
     try:
         if num1 is ValueError:

@@ -1,4 +1,3 @@
-
 def count_words(words):
     lowerCase = words.lower()
     wordSplit = lowerCase.split()
@@ -12,8 +11,7 @@ def count_words(words):
                 word_list[word] = 1
 
     return word_list
-    
-        
+
 
 sample_text1 = "The quick brown fox jumps over the lazy dog"
 print(count_words(sample_text1))
