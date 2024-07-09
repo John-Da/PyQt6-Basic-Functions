@@ -1,7 +1,11 @@
-def calculate_average(**numbers):
-    for number in numbers:
-        avg = sum(number)
-        
+def calculate_average(*numbers, round_to=2):
+    number = len(numbers)
+    if number == 0:
+        return 0
+    else:
+        avg = sum(numbers) / len(numbers)
+        answer = round(avg, round_to) 
+        return answer
 
 
 
