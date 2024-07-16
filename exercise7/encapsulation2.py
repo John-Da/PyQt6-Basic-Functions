@@ -25,7 +25,7 @@ class WeatherStation:
 
     def __str__(self):
         temp_fahrenheit = WeatherStation.celsius_to_fahrenheit(self.__temperature)
-        return f"WeatherStation WS-{self.__id:03} at {self.__location}: Temperature: {self.__temperature}°F ({temp_fahrenheit:.1f}°F)"
+        return f"Weather Station WS-{self.__id:03} at {self.__location}:  Temperature: {self.__temperature}°C ({temp_fahrenheit:.1f}°F)"
 
 
 station1 = WeatherStation("New York", 22.5)
@@ -34,4 +34,4 @@ station2 = WeatherStation("Los Angeles", 28.3)
 print(station1)
 print(station2)
 
-print(f"35°F is {WeatherStation.celsius_to_fahrenheit(35):.1f}°F")
+print(f"35°C is {WeatherStation.celsius_to_fahrenheit(35):.1f}°F")
