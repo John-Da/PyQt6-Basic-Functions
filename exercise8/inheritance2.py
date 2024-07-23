@@ -6,7 +6,6 @@ class Car:
         self._year = year
         self._mileage = mileage
 
-
     def drive(self, distance):
         self._mileage = distance
 
@@ -21,24 +20,25 @@ class RentalCar(Car):
         self._is_rented = False
         self._dailyRate = dailyrate
 
-
     def rent(self, days):
         self._is_rented = True
         self._totalCost = days * self._dailyRate
         return f"Rented for {days} days. Total cost: ${self._totalCost}"
 
-    def return_car(self, distance_driven): 
+    def return_car(self, distance_driven):
         self._mileage += distance_driven
         self._is_rented = False
         return f"Car returned."
 
     def __str__(self):
         if self._is_rented:
-            rented = 'Rented'
-            return f"{super().__str__()}, Daily rate: ${self._dailyRate}, Status: {rented}"
+            rented = "Rented"
+            return (
+                f"{super().__str__()}, Daily rate: ${self._dailyRate}, Status: {rented}"
+            )
 
         else:
-            avialble = 'Available'
+            avialble = "Available"
             return f"{super().__str__()}, Daily rate: ${self._dailyRate}, Status: {avialble}"
 
 
