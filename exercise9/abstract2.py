@@ -11,7 +11,6 @@ class Animal(ABC):
         pass
 
 
-
 class Human(Animal):
     def move(self):
         print('Human can crawl, walk and run')
