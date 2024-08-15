@@ -31,7 +31,6 @@ class MainWindow(QMainWindow):
         font = self.statusLabel.font()
         font.setPointSize(20)
         self.statusLabel.setFont(font)
-        # self.statusLabel.move(0, 100)
         self.statusLabel.setAlignment(
             Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter
         )
@@ -55,10 +54,7 @@ class MainWindow(QMainWindow):
 
     def chl1(self, value):
         cm1 = "You want to drink Orange Juice"
-        cm2 = "You want to drink Green Tea"
-
         cm3 = "You don't want to drink Orange Juice"
-        cm4 = "You don't want to drink Green Tea"
 
         state = Qt.CheckState(value)
 
@@ -88,19 +84,6 @@ class MainWindow(QMainWindow):
             self.statusLabel.setText(cbm1)
         elif i == "DME":
             self.statusLabel.setText(cbm2)
-
-    # def btnfunc(self, event):
-    #     reply = QMessageBox.question(
-    #         self,
-    #         "Message",
-    #         "Are you sure to quit?",
-    #         QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
-    #         QMessageBox.StandardButton.No,
-    #     )
-    #     if reply == QMessageBox.StandardButton.Yes:
-    #         event.accept()
-    #     else:
-    #         event.ignore()
 
 
 app = QApplication(sys.argv)

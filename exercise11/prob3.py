@@ -12,21 +12,17 @@ class MainWindow(QMainWindow):
 
         self.label = QLabel()
 
-        self.checklist1 = QCheckBox('Enable ComboBox')
+        self.checklist1 = QCheckBox("Enable ComboBox")
         self.checklist1.stateChanged.connect(self.chl1)
 
-
         self.comboList = QComboBox()
-        self.comboList.addItems(['Option 1', 'Option 2', 'Option 3'])
+        self.comboList.addItems(["Option 1", "Option 2", "Option 3"])
         self.comboList.setEnabled(False)
         self.comboList.currentTextChanged.connect(self.enableCombo)
 
-
         layout = QVBoxLayout()
-        # layout.addWidget(self.label)
         layout.addWidget(self.checklist1)
         layout.addWidget(self.comboList)
-
 
         container = QWidget()
         container.setLayout(layout)
@@ -41,9 +37,7 @@ class MainWindow(QMainWindow):
             self.comboList.setEnabled(False)
 
     def enableCombo(self, item):
-        print(f'Selected item: {item}')
-        
-        
+        print(f"Selected item: {item}")
 
 
 app = QApplication(sys.argv)

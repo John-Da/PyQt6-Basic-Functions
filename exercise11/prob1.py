@@ -12,8 +12,9 @@ class MainWindow(QMainWindow):
 
         self.label = QLabel("Yen Da Hwa")
 
-        self.quitbtn = QPushButton("Click to quit")
-        self.quitbtn.clicked.connect(self.btnfunc)
+        self.quitbtn = QPushButton("Quit")
+        self.quitbtn.clicked.connect(QApplication.instance().quit)
+        self.quitbtn.setToolTip("Click to quit")
 
         layout = QVBoxLayout()
         layout.addWidget(self.label)
@@ -24,7 +25,7 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(container)
 
-    def btnfunc(self, event):
+    def closeEvent(self, event):
         reply = QMessageBox.question(
             self,
             "Message",
