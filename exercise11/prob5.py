@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.label)
 
     def mouseMoveEvent(self, event):
-        self.label = QLabel()
+        self.label = QLabel(self) # without self, it shows as new mouse pointer
         self.label.setStyleSheet("background: red")
         self.label.setGeometry(event.pos().x(), event.pos().y(), 10, 10)
         self.label.show()
