@@ -18,7 +18,7 @@ class MainWindow(QMainWindow):
         self.label.setStyleSheet("background:yellow; color:black;")
 
         self.input = QLineEdit()
-        self.input.textChanged.connect(self.change_Text)
+        self.input.returnPressed.connect(self.printItemText)
 
         self.listWidget = QListWidget()
         self.listWidget.setSelectionMode(QAbstractItemView.SelectionMode.MultiSelection)
@@ -39,21 +39,28 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(container)
 
-    def change_Text(self):
-
-        inputtext = self.input.text()
-        hello = f"Hello {inputtext}!"
-        return self.label.setText(hello)
-
     def printItemText(self):
-        inputtext = self.input.text()
-        items = self.listWidget.selectedItems()
-        x = []
-        for i in range(len(items)):
-            x.append(str(self.listWidget.selectedItems()[i].text()))
-        return self.label.setText(
-            f'Hello {inputtext}! You are interested in these courses {",".join(map(str, x))}'
-        )
+        inputtext = self.input.text().strip()
+
+        items = [item.text() for item in self.listWidget.selectedItems()]
+        for i in range(self.listWidget.count()):
+            item = self.listWidget.item(i)
+            item.setBackground(Qt.GlobalColor.black)
+
+        if items:
+            for item in self.listWidget.selectedItems():
+                item.setBackground(Qt.GlobalColor.yellow)
+            if inputtext:
+                self.label.setText(
+                    f'Hello {inputtext}! You are interested in these courses {",".join(map(str, items))}'
+                )
+            else:
+                self.label.setText(f"{', '.join(items)}")
+        else:
+            if inputtext:
+                self.label.setText(f'Hello {inputtext}!{", ".join(items)}')
+            else:
+                self.label.setText("")
 
 
 app = QApplication(sys.argv)

@@ -9,7 +9,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Name Form")
-        self.setFixedSize(QSize(600, 200))
+        self.setFixedSize(QSize(400, 200))
 
         self.label1 = QLabel("First Name:")
         font = self.label1.font()
@@ -22,32 +22,47 @@ class MainWindow(QMainWindow):
         self.label2.setFont(font)
 
         self.input1 = QLineEdit()
+        font = self.input1.font()
+        font.setPointSize(20)
+        self.input1.setFont(font)
 
         self.input2 = QLineEdit()
+        font = self.input2.font()
+        font.setPointSize(20)
+        self.input2.setFont(font)
 
         self.cancel = QPushButton("Cancel")
+        self.cancel.setMaximumWidth(120)
         font = self.cancel.font()
         font.setPointSize(20)
         self.cancel.setFont(font)
         self.cancel.setStyleSheet("color:red;")
+
         self.submit = QPushButton("Submit")
+        self.submit.setMaximumWidth(120)
         font = self.submit.font()
         font.setPointSize(20)
         self.submit.setFont(font)
         self.submit.setStyleSheet("color:green;")
 
-        layout = QGridLayout()
-        layout.addWidget(self.label1, 0, 0)
-        layout.addWidget(self.label2, 1, 0)
-        layout.addWidget(self.input1, 0, 3)
-        layout.addWidget(self.input2, 1, 3)
+        vlayout = QHBoxLayout()
+        vlayout.addWidget(self.label1)
+        vlayout.addWidget(self.input1)
+        vlayout.setSpacing(80)
+
+        slayout = QHBoxLayout()
+        slayout.addWidget(self.label2)
+        slayout.addWidget(self.input2)
+        slayout.setSpacing(80)
 
         button_layout = QHBoxLayout()
         button_layout.addWidget(self.cancel)
         button_layout.addWidget(self.submit)
+        button_layout.setSpacing(20)
 
         overall = QVBoxLayout()
-        overall.addLayout(layout)
+        overall.addLayout(vlayout)
+        overall.addLayout(slayout)
         overall.addLayout(button_layout)
 
         container = QWidget()
