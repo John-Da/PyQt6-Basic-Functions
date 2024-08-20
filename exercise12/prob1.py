@@ -55,7 +55,7 @@ class MainWindow(QMainWindow):
                     f'Hello {inputtext}! You are interested in these courses {",".join(map(str, items))}'
                 )
             else:
-                self.label.setText(f"{', '.join(items)}")
+                self.label.setText(f"You are interested in these courses {', '.join(items)}")
         else:
             if inputtext:
                 self.label.setText(f'Hello {inputtext}!{", ".join(items)}')
