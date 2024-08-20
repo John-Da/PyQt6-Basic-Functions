@@ -11,13 +11,12 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Name Form")
         self.setFixedSize(QSize(600, 200))
 
-
-        self.label1 = QLabel('First Name:')
+        self.label1 = QLabel("First Name:")
         font = self.label1.font()
         font.setPointSize(20)
         self.label1.setFont(font)
 
-        self.label2 = QLabel('Last Name:')
+        self.label2 = QLabel("Last Name:")
         font = self.label2.font()
         font.setPointSize(20)
         self.label2.setFont(font)
@@ -26,17 +25,16 @@ class MainWindow(QMainWindow):
 
         self.input2 = QLineEdit()
 
-
-
-        self.cancel = QPushButton('Cancel')
+        self.cancel = QPushButton("Cancel")
         font = self.cancel.font()
         font.setPointSize(20)
         self.cancel.setFont(font)
-        self.submit = QPushButton('Submit')
+        self.cancel.setStyleSheet("color:red;")
+        self.submit = QPushButton("Submit")
         font = self.submit.font()
         font.setPointSize(20)
         self.submit.setFont(font)
-
+        self.submit.setStyleSheet("color:green;")
 
         layout = QGridLayout()
         layout.addWidget(self.label1, 0, 0)
@@ -52,19 +50,10 @@ class MainWindow(QMainWindow):
         overall.addLayout(layout)
         overall.addLayout(button_layout)
 
-
         container = QWidget()
         container.setLayout(overall)
-        
 
         self.setCentralWidget(container)
-
-        
-
-        
-
-
-
 
 
 app = QApplication(sys.argv)
