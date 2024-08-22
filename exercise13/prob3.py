@@ -38,8 +38,8 @@ class MainWindow(QMainWindow):
 
     def check_input(self):
         name, email, age = [info.text() for info in self.info]
-        if name == '' or email == '' or age == '':
-            self.userInfo.setText('Please fill all fields')
+        if name == "" or email == "" or age == "":
+            self.userInfo.setText("Please fill all fields")
         else:
             self.userInfo.setText(f"Name: {name}, Email: {email}, Age: {age}")
 

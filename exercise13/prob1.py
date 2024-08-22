@@ -9,7 +9,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Volume Control")
-        self.screenSize = self.size_and_center(200, 100)
+        self.size_and_center(200, 100)
 
         self.slider = QSlider(Qt.Orientation.Horizontal)
         self.slider.setMinimum(0)

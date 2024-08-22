@@ -46,7 +46,7 @@ class MainWindow(QMainWindow):
         self.sliders = [self.red, self.green, self.blue]
 
         self.color_label = QLabel()
-        self.color_label.setStyleSheet(f'background-color:rgb(0,0,0)')
+        self.color_label.setStyleSheet(f"background-color:rgb(0,0,0)")
 
         layout = QVBoxLayout()
         layout.addWidget(self.red_label)
