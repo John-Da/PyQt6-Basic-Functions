@@ -9,7 +9,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Volume Control")
-        self.setFixedSize(QSize(200, 100))
+        self.screenSize = self.size_and_center(200, 100)
 
         self.slider = QSlider(Qt.Orientation.Horizontal)
         self.slider.setMinimum(0)
@@ -33,6 +33,12 @@ class MainWindow(QMainWindow):
         container = QWidget()
         container.setLayout(layout)
         self.setCentralWidget(container)
+
+    def size_and_center(self, width, height):
+        screen = QApplication.primaryScreen().geometry()
+        x = (screen.width() - width) // 2
+        y = (screen.height() - height) // 2
+        self.setGeometry(x, y, width, height)
 
     def display(self):
         self.value_label.setText(str(self.sender().value()) + "%")
