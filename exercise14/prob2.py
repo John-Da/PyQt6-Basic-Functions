@@ -70,19 +70,21 @@ class MainWindow(QMainWindow):
         inputs = self.sender()
         op = inputs.text()
         try:
-            num1 = int(self.fNum_input.text())
-            num2 = int(self.lNum_input.text())
+            num1 = float(self.fNum_input.text())
+            num2 = float(self.lNum_input.text())
             result = eval(f"{num1} {op} {num2}")
 
-            self.resultList.append(f"{num1} {op} {num2} = {result}")
+            self.resultList.append(f"{num1:.1f} {op} {num2:.1f} = {result:.2f}")
             self.result_label.setText("\n".join(map(str, self.resultList)))
             self.clear_inputs()
 
         except ValueError:
-            self.result_label.setText("Error: Invalid input")
+            self.resultList.append("Error: Invalid input")
+            self.result_label.setText("\n".join(map(str, self.resultList)))
 
         except ZeroDivisionError:
-            self.result_label.setText("Error: Division by zero")
+            self.resultList.append("Error: Division by zero")
+            self.result_label.setText("\n".join(map(str, self.resultList)))
 
     def clear_inputs(self):
         self.fNum_input.clear()
