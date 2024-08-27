@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
             num2 = float(self.lNum_input.text())
             result = eval(f"{num1} {op} {num2}")
 
-            self.resultList.append(f"{num1:.1f} {op} {num2:.1f} = {result:.2f}")
+            self.resultList.append(f"{num1} {op} {num2} = {result:.2f}")
             self.result_label.setText("\n".join(map(str, self.resultList)))
             self.clear_inputs()
 
