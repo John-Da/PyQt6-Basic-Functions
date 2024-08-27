@@ -76,7 +76,7 @@ class MainWindow(QMainWindow):
 
             self.resultList.append(f"{num1} {op} {num2} = {result:.2f}")
             self.result_label.setText("\n".join(map(str, self.resultList)))
-            self.clear_inputs()
+            # self.clear_inputs()
 
         except ValueError:
             self.resultList.append("Error: Invalid input")

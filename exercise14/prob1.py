@@ -90,6 +90,7 @@ class MainWindow(QMainWindow):
 
         self.fname_input.setText("")
         self.lname_input.setText("")
+        self.result_label.setText("")
 
 
 app = QApplication(sys.argv)
