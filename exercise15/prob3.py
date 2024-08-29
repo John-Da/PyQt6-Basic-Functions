@@ -4,7 +4,7 @@ from PyQt6.QtGui import *
 import sys
 
 
-class MainWidow(QMainWindow):
+class NoteApp(QMainWindow):
     def __init__(self):
         super().__init__()
 
@@ -94,7 +94,9 @@ class MainWidow(QMainWindow):
         self.sideToolBar.addAction(self.copyAction)
         self.sideToolBar.addAction(self.pasteAction)
 
-app = QApplication(sys.argv)
-window = MainWidow()
-window.show()
-app.exec()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = NoteApp()
+    window.show()
+    app.exec()
