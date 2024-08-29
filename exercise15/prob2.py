@@ -27,7 +27,6 @@ class MainWindow(QMainWindow):
         self.sideToolBar.addAction(self.pasteAction)
 
 
-
 app = QApplication(sys.argv)
 window = MainWindow()
 window.show()

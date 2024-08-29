@@ -13,7 +13,6 @@ class EnhanceNoteApp(NoteApp):
         self.colorDropDown.currentTextChanged.connect(self.changeTextColor)
         self.exitAction.triggered.connect(self.closeApp)
 
-   
     def addInputText(self):
         self.textInput.append(self.inputInput.text())
         self.inputInput.clear()
@@ -26,9 +25,6 @@ class EnhanceNoteApp(NoteApp):
 
     def closeApp(self):
         app.quit()
-
-
-
 
 
 if __name__ == "__main__":

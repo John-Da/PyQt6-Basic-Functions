@@ -18,28 +18,25 @@ class NoteApp(QMainWindow):
         self._creatToolBar()
         self._createTBMenu()
 
-
         self.inputInput = QLineEdit()
         self.textInput = QTextEdit()
         self.layouts.addWidget(self.inputInput)
         self.layouts.addWidget(self.textInput)
 
         self.colorDropDown = QComboBox()
-        self.colorDropDown.addItems(['Black', 'Red', 'Blue', 'Green'])
+        self.colorDropDown.addItems(["Black", "Red", "Blue", "Green"])
         self.layouts.addWidget(self.colorDropDown)
 
-        self.saveBtn = QPushButton('Save')
+        self.saveBtn = QPushButton("Save")
         self.layouts.addWidget(self.saveBtn)
 
-        self.message = QLabel('Ready')
+        self.message = QLabel("Ready")
         self.layouts.addWidget(self.message)
-
 
         container = QWidget()
         container.setLayout(self.layouts)
 
         self.setCentralWidget(container)
-
 
     def _createMenuBar(self):
         self.menuBar = self.menuBar()
@@ -81,7 +78,6 @@ class NoteApp(QMainWindow):
         self.helpAction = QAction("About", self)
         self.helpMenu.addAction(self.helpAction)
 
-    
     def _creatToolBar(self):
         self.sideToolBar = QToolBar("Help", self)
         self.addToolBar(Qt.ToolBarArea.TopToolBarArea, self.sideToolBar)
