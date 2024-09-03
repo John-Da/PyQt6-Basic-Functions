@@ -20,7 +20,7 @@ class ActionConfiguration(WindowsMenusToolBar):
 
         self.newIcon.setStatusTip("Open a file")
         self.saveIcon.setStatusTip("Save a file")
-        self.clearIcon.setStatusTip("Clear")
+        self.clearIcon.setStatusTip("Clear the result")
 
         self.openAction.triggered.connect(self._openStatus)
         self.saveAction.triggered.connect(self._saveStatus)
