@@ -90,8 +90,8 @@ class MainWindow(QMainWindow):
         self.fNum_input.clear()
         self.lNum_input.clear()
 
-
-app = QApplication(sys.argv)
-window = MainWindow()
-window.show()
-app.exec()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    app.exec()
