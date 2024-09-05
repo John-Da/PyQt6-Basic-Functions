@@ -1,5 +1,1 @@
-Error: Invalid input
-Error: Invalid input
-5.0 + 6.0 = 11.00
-5.0 - 6.0 = -1.00
-5.0 * 7.0 = 35.00
+5.0 / 7.0 = 0.71

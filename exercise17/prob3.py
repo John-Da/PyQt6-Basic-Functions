@@ -34,8 +34,8 @@ class RobustCalculator(MessageBoxDisplay):
                     num = word.split()
                     first_num = num[0]
                     sec_num = num[2]
-                self.fNum_input.setText(first_num)
-                self.lNum_input.setText(sec_num)
+                self.fNum_input.setText(f"{float(first_num):.0f}")
+                self.lNum_input.setText(f"{float(sec_num):.0f}")
 
         except FileNotFoundError:
             self.messages = QMessageBox()
