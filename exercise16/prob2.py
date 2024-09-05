@@ -16,21 +16,17 @@ class ActionConfiguration(WindowsMenusToolBar):
 
         self._createShortcuts()
         self.statusbar = self.statusBar()
-        self.statusbar.showMessage("Ready", 3000)
+        self.statusbar.showMessage("Ready")
 
-        self.newIcon.setStatusTip("Open a file")
-        self.saveIcon.setStatusTip("Save a file")
-        self.clearIcon.setStatusTip("Clear the result")
+        self.openAction.setStatusTip("Open a file")
+        self.saveAction.setStatusTip("Save a file")
+        self.clearAction.setStatusTip("Clear the result")
 
         self.openAction.triggered.connect(self._openStatus)
         self.saveAction.triggered.connect(self._saveStatus)
         self.exitAction.triggered.connect(self._exitStatus)
         self.clearAction.triggered.connect(self._clearStatus)
-        self.copyAction.triggered.connect(self._copyStatus)
-        self.pasteAction.triggered.connect(self._pasteStatus)
-        self.cutAction.triggered.connect(self._cutStatus)
-        self.colorAction.triggered.connect(self._colorStatus)
-        self.sizeAction.triggered.connect(self._sizeStatus)
+        
 
     def _createShortcuts(self):
         self.openAction.setShortcut(QKeySequence("Ctrl+O"))
@@ -39,31 +35,18 @@ class ActionConfiguration(WindowsMenusToolBar):
         self.clearAction.setShortcut(QKeySequence("Ctrl+R"))
 
     def _openStatus(self):
-        self.statusbar.showMessage("Open a file", 1000)
+        self.statusbar.showMessage("Open a file")
 
     def _saveStatus(self):
-        self.statusbar.showMessage("Save a file", 1000)
+        self.statusbar.showMessage("Save a file")
 
     def _exitStatus(self):
-        self.statusbar.showMessage("Exit the application", 1000)
+        self.statusbar.showMessage("Exit the application")
 
     def _clearStatus(self):
-        self.statusbar.showMessage("Clear the result", 1000)
+        self.statusbar.showMessage("Clear the result")
 
-    def _copyStatus(self):
-        self.statusbar.showMessage("Copy", 1000)
-
-    def _pasteStatus(self):
-        self.statusbar.showMessage("Paste", 1000)
-
-    def _cutStatus(self):
-        self.statusbar.showMessage("Cut", 1000)
-
-    def _colorStatus(self):
-        self.statusbar.showMessage("Text Color", 1000)
-
-    def _sizeStatus(self):
-        self.statusbar.showMessage("Text Size", 1000)
+    
 
 
 if __name__ == "__main__":

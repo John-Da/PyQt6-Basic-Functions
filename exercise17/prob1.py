@@ -15,12 +15,9 @@ class EnhancedCalculator(ActionConfiguration):
         self.setWindowTitle("Calculator with Actions")
 
         self.saveAction.triggered.connect(self._saveFile)
-        self.saveIcon.triggered.connect(self._saveFile)
 
         self.openAction.triggered.connect(self._openFile)
-        self.newIcon.triggered.connect(self._openFile)
 
-        self.clearIcon.triggered.connect(self._clearResult)
         self.clearAction.triggered.connect(self._clearResult)
 
         self.exitAction.triggered.connect(self._closeApp)

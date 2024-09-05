@@ -15,28 +15,16 @@ class WindowsMenusToolBar(MainWindow):
         self.setWindowTitle("Calculator with Menus and Toolbar")
         self.resize(400, 200)
 
-        self._createActions()
-        self._createToolBars()
         self._addMenus()
-
-    def _createActions(self):
-        path = os.path.dirname(__file__)
-        os.chdir(path)
-
-        self.newIcon = QAction(QIcon("images/file-open.svg"), "Open", self)
-        self.saveIcon = QAction(QIcon("images/file-save.png"), "Save", self)
-        self.clearIcon = QAction(QIcon("images/edit-clear.png"), "Clear", self)
+        self._createToolBars()
 
     def _createToolBars(self):
+        path = os.path.dirname(__file__)
+        os.chdir(path)
         fileToolBar = self.addToolBar("File")
-        fileToolBar.addAction(self.newIcon)
-        fileToolBar.addAction(self.saveIcon)
-        fileToolBar.addAction(self.clearIcon)
-
-    def _createFileTB(self):
-        self.openToolBar = self.addToolBar("Open")
-        self.saveToolBar = self.addToolBar("Save")
-        self.exitToolBar = self.addToolBar("Exit")
+        fileToolBar.addAction(self.openAction)
+        fileToolBar.addAction(self.saveAction)
+        fileToolBar.addAction(self.clearAction)
 
     def _addMenus(self):
         self._addFileMenu()

@@ -1,0 +1,13 @@
+1.0 + 1.0 = 2.00
+1.0 - 1.0 = 0.00
+1.0 * 1.0 = 1.00
+1.0 / 1.0 = 1.00
+Error: Invalid input
+Error: Invalid input
+Error: Invalid input
+Error: Invalid input
+Error: Invalid input
+Error: Invalid input
+Error: Invalid input
+Error: Invalid input
+Error: Invalid input

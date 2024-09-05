@@ -14,10 +14,10 @@ class MessageBoxDisplay(EnhancedCalculator):
         super().__init__()
         self.setWindowTitle("Calculator with Message Box")
 
-        self.fNum_input.returnPressed.connect(self._firstInput)
-        self.lNum_input.returnPressed.connect(self._secondInput)
+        self.fNum_input.returnPressed.connect(self._checkInput)
+        self.lNum_input.returnPressed.connect(self._checkInput)
 
-    def _firstInput(self):
+    def _checkInput(self):
         try:
             fmsg = "Please enter the first number"
             float(self.fNum_input.text())
@@ -25,8 +25,8 @@ class MessageBoxDisplay(EnhancedCalculator):
             self.messages = QMessageBox()
             self.messages.setText(f"{fmsg}")
             self.messages.exec()
-
-    def _secondInput(self):
+            return
+        
         try:
             smsg = "Please enter the second number"
             float(self.lNum_input.text())
@@ -34,6 +34,8 @@ class MessageBoxDisplay(EnhancedCalculator):
             self.messages = QMessageBox()
             self.messages.setText(f"{smsg}")
             self.messages.exec()
+            return
+        
 
 
 if __name__ == "__main__":

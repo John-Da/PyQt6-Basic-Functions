@@ -15,7 +15,6 @@ class RobustCalculator(MessageBoxDisplay):
         self.setWindowTitle("Robust Calculator")
 
         self.openAction.triggered.connect(self._openFile)
-        self.newIcon.triggered.connect(self._openFile)
 
     def _openFile(self):
         path = os.path.dirname(__file__)
@@ -27,10 +26,10 @@ class RobustCalculator(MessageBoxDisplay):
             with open(filename, "r") as results:
                 resultText = results.read()
                 self.result_label.setText(resultText)
-
             self.messages = QMessageBox()
             self.messages.setText(f"Reading result to file {self.filePath}")
             self.messages.exec()
+            return
 
         except FileNotFoundError:
             self.messages = QMessageBox()
