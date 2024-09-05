@@ -6,7 +6,7 @@ from PyQt6.QtGui import *
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
-from prob1 import WindowsMenusToolBar
+from exercise16.prob1 import WindowsMenusToolBar
 
 
 class ActionConfiguration(WindowsMenusToolBar):
