@@ -47,7 +47,8 @@ class MainWindow(QMainWindow):
         # Clear the input field
 
         inputText = self.textInput.text()
-        self.textArea.setText(inputText)
+        self.textArea.append(inputText)
+        self.textInput.clear()
 
         pass
 
