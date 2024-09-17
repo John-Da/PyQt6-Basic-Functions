@@ -13,7 +13,7 @@ class CalculatorApp(QMainWindow):
 
         self.layouts = QVBoxLayout()
 
-        self.sliderOneLabel = QLabel("Slider 1:0")
+        self.sliderOneLabel = QLabel("Slider 1:50")
         self.sliderOne = QSlider(Qt.Orientation.Horizontal)
         self.sliderOne.setMaximum(100)
         self.sliderOne.setMinimum(1)
@@ -29,7 +29,7 @@ class CalculatorApp(QMainWindow):
         self.layouts.addWidget(self.sliderOneLabel)
         self.layouts.addWidget(self.sliderOne)
 
-        self.sliderTwoLabel = QLabel("Slider 2:0")
+        self.sliderTwoLabel = QLabel("Slider 2:50")
         self.sliderTwo = QSlider(Qt.Orientation.Horizontal)
         self.sliderTwo.setMaximum(100)
         self.sliderTwo.setMinimum(1)
@@ -57,6 +57,9 @@ class CalculatorApp(QMainWindow):
 
         self.setCentralWidget(container)
 
+    def updateLabel(self):
+        ...
+
     def displaynum(self, numlabel, num):
         numlabel.setText(f"Slider {num}: {self.sender().value()}")
 
@@ -72,7 +75,7 @@ class CalculatorApp(QMainWindow):
         for btn in self.btns:
             self.operators = QPushButton(btn)
             self.operators.setMaximumWidth(160)
-            self.operators.clicked.connect(self.calculate)
+            self.operators.clicked.connect(partial(self.calculate, btn))
             btn_layout.addWidget(self.operators)
         self.layouts.addLayout(btn_layout)
 
@@ -84,19 +87,17 @@ class CalculatorApp(QMainWindow):
         result_layout.addWidget(self.result_label)
         self.layouts.addLayout(result_layout)
 
-    def calculate(self):
-        inputs = self.sender()
-        op = inputs.text()
+    def calculate(self, operation):
         g, b = [slider.value() for slider in self.sliders]
         try:
-            if op == "Clear":
+            if operation == "Clear":
                 self.result_label.clear()
             else:
                 num1 = float(g)
                 num2 = float(b)
-                result = eval(f"{num1} {op} {num2}")
+                result = eval(f"{num1} {operation} {num2}")
 
-                self.resultList.append(f"{num1} {op} {num2} = {result:.2f}")
+                self.resultList.append(f"{num1} {operation} {num2} = {result:.2f}")
                 self.result_label.setText("\n".join(map(str, self.resultList)))
 
         except ValueError:
