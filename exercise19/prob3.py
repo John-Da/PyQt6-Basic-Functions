@@ -1,8 +1,8 @@
 from PyQt6 import *
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
+from functools import partial
 import sys
-
 
 
 class CalculatorApp(QMainWindow):
@@ -11,44 +11,41 @@ class CalculatorApp(QMainWindow):
 
         self.setWindowTitle("Calulator with slider")
 
-
         self.layouts = QVBoxLayout()
 
-
-        self.sliderOneLabel = QLabel('Slider 1:0')
+        self.sliderOneLabel = QLabel("Slider 1:0")
         self.sliderOne = QSlider(Qt.Orientation.Horizontal)
         self.sliderOne.setMaximum(100)
-        self.sliderOne.setMinimum(0)
-        self.sliderOne.setValue(0)
+        self.sliderOne.setMinimum(1)
+        self.sliderOne.setValue(50)
 
         self.sliderOne.setTickPosition(QSlider.TickPosition.TicksBelow)
         self.sliderOne.setTickInterval(10)
 
-        self.sliderOne.valueChanged.connect(lambda: self.displaynum(self.sliderOneLabel, 1))
+        self.sliderOne.valueChanged.connect(
+            lambda: self.displaynum(self.sliderOneLabel, 1)
+        )
 
         self.layouts.addWidget(self.sliderOneLabel)
         self.layouts.addWidget(self.sliderOne)
 
-        self.sliderTwoLabel = QLabel('Slider 2:0')
+        self.sliderTwoLabel = QLabel("Slider 2:0")
         self.sliderTwo = QSlider(Qt.Orientation.Horizontal)
         self.sliderTwo.setMaximum(100)
-        self.sliderTwo.setMinimum(0)
-        self.sliderTwo.setValue(0)
+        self.sliderTwo.setMinimum(1)
+        self.sliderTwo.setValue(50)
 
         self.sliderTwo.setTickPosition(QSlider.TickPosition.TicksBelow)
         self.sliderTwo.setTickInterval(10)
 
-        self.sliderTwo.valueChanged.connect(lambda: self.displaynum(self.sliderTwoLabel, 2))
-
+        self.sliderTwo.valueChanged.connect(
+            lambda: self.displaynum(self.sliderTwoLabel, 2)
+        )
 
         self.layouts.addWidget(self.sliderTwoLabel)
         self.layouts.addWidget(self.sliderTwo)
 
         self.sliders = [self.sliderOne, self.sliderTwo]
-
-
-
-
 
         self.btns = ["+", "-", "*", "/", "Clear"]
         self._createBtn()
@@ -59,10 +56,9 @@ class CalculatorApp(QMainWindow):
         container.setLayout(self.layouts)
 
         self.setCentralWidget(container)
-    
+
     def displaynum(self, numlabel, num):
         numlabel.setText(f"Slider {num}: {self.sender().value()}")
-    
 
     def _createMenuBar(self):
         self.menuBar = self.menuBar()
@@ -84,7 +80,7 @@ class CalculatorApp(QMainWindow):
 
         result_layout = QHBoxLayout()
         self.result_label = QTextEdit()
-        
+
         result_layout.addWidget(self.result_label)
         self.layouts.addLayout(result_layout)
 
@@ -102,7 +98,6 @@ class CalculatorApp(QMainWindow):
 
                 self.resultList.append(f"{num1} {op} {num2} = {result:.2f}")
                 self.result_label.setText("\n".join(map(str, self.resultList)))
-            # self.clear_inputs()
 
         except ValueError:
             self.resultList.append("Error: Invalid input")
@@ -111,11 +106,6 @@ class CalculatorApp(QMainWindow):
         except ZeroDivisionError:
             self.resultList.append("Error: Division by zero")
             self.result_label.setText("\n".join(map(str, self.resultList)))
-
-
-
-
-
 
 
 if __name__ == "__main__":
