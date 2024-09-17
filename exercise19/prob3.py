@@ -13,7 +13,7 @@ class CalculatorApp(QMainWindow):
 
         self.layouts = QVBoxLayout()
 
-        self.sliderOneLabel = QLabel("Slider 1:50")
+        self.sliderOneLabel = QLabel("")
         self.sliderOne = QSlider(Qt.Orientation.Horizontal)
         self.sliderOne.setMaximum(100)
         self.sliderOne.setMinimum(1)
@@ -22,6 +22,7 @@ class CalculatorApp(QMainWindow):
         self.sliderOne.setTickPosition(QSlider.TickPosition.TicksBelow)
         self.sliderOne.setTickInterval(10)
 
+        self.sliderOneLabel.setText(f"Slider1: {self.sliderOne.value()}")
         self.sliderOne.valueChanged.connect(
             lambda: self.displaynum(self.sliderOneLabel, 1)
         )
@@ -29,7 +30,7 @@ class CalculatorApp(QMainWindow):
         self.layouts.addWidget(self.sliderOneLabel)
         self.layouts.addWidget(self.sliderOne)
 
-        self.sliderTwoLabel = QLabel("Slider 2:50")
+        self.sliderTwoLabel = QLabel("")
         self.sliderTwo = QSlider(Qt.Orientation.Horizontal)
         self.sliderTwo.setMaximum(100)
         self.sliderTwo.setMinimum(1)
@@ -38,6 +39,7 @@ class CalculatorApp(QMainWindow):
         self.sliderTwo.setTickPosition(QSlider.TickPosition.TicksBelow)
         self.sliderTwo.setTickInterval(10)
 
+        self.sliderTwoLabel.setText(f"Slider2: {self.sliderTwo.value()}")
         self.sliderTwo.valueChanged.connect(
             lambda: self.displaynum(self.sliderTwoLabel, 2)
         )
@@ -57,8 +59,6 @@ class CalculatorApp(QMainWindow):
 
         self.setCentralWidget(container)
 
-    def updateLabel(self):
-        ...
 
     def displaynum(self, numlabel, num):
         numlabel.setText(f"Slider {num}: {self.sender().value()}")
