@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
         self.lNum_input.setAlignment(Qt.AlignmentFlag.AlignRight)
         self.layouts.addLayout(lNum_layout)
 
-        self.btns = ["+", "-", "*", "/"]
+        self.btns = ["+", "-", "*", "/", "Clear"]
         self._createBtn()
         self.resultList = []
         self._createResultLayout()
@@ -70,6 +70,9 @@ class MainWindow(QMainWindow):
         inputs = self.sender()
         op = inputs.text()
         try:
+            if self.operators == "Clear":
+                self.result_label.clear()
+
             num1 = float(self.fNum_input.text())
             num2 = float(self.lNum_input.text())
             result = eval(f"{num1} {op} {num2}")
@@ -85,10 +88,6 @@ class MainWindow(QMainWindow):
         except ZeroDivisionError:
             self.resultList.append("Error: Division by zero")
             self.result_label.setText("\n".join(map(str, self.resultList)))
-
-    def clear_inputs(self):
-        self.fNum_input.clear()
-        self.lNum_input.clear()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
