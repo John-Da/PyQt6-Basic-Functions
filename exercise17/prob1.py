@@ -22,6 +22,8 @@ class EnhancedCalculator(ActionConfiguration):
 
         self.exitAction.triggered.connect(self._closeApp)
 
+        
+
     def _closeApp(self):
         app.quit()
 

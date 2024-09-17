@@ -26,6 +26,8 @@ class ActionConfiguration(WindowsMenusToolBar):
         self.saveAction.triggered.connect(self._saveStatus)
         self.exitAction.triggered.connect(self._exitStatus)
         self.clearAction.triggered.connect(self._clearStatus)
+
+
         
 
     def _createShortcuts(self):

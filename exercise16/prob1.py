@@ -18,6 +18,7 @@ class WindowsMenusToolBar(MainWindow):
         self._addMenus()
         self._createToolBars()
 
+
     def _createToolBars(self):
         path = os.path.dirname(__file__)
         os.chdir(path)
@@ -60,6 +61,9 @@ class WindowsMenusToolBar(MainWindow):
         self.sizeAction = QAction("Size", self)
         self.configMenu.addAction(self.colorAction)
         self.configMenu.addAction(self.sizeAction)
+
+
+    
 
 
 if __name__ == "__main__":

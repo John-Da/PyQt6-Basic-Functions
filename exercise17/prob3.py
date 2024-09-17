@@ -14,7 +14,7 @@ class RobustCalculator(MessageBoxDisplay):
         super().__init__()
         self.setWindowTitle("Robust Calculator")
 
-        self.openAction.triggered.connect(self._openFileaa)
+        self.openAction.triggered.connect(self._openFileaa) 
 
     def _openFileaa(self):
         path = os.path.dirname(__file__)
@@ -41,6 +41,7 @@ class RobustCalculator(MessageBoxDisplay):
             self.messages = QMessageBox()
             self.messages.setText(f"File not found. Please save a file first.")
             self.messages.exec()
+        
 
 
 if __name__ == "__main__":

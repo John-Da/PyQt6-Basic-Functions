@@ -17,6 +17,8 @@ class MessageBoxDisplay(EnhancedCalculator):
         self.fNum_input.returnPressed.connect(self._checkInput)
         self.lNum_input.returnPressed.connect(self._checkInput)
 
+        
+
     def _checkInput(self):
         try:
             fmsg = "Please enter the first number"
