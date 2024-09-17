@@ -32,6 +32,6 @@ class CalculorDialogs(CalculatorFileDialog):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = CalculatorFileDialog()
+    window = CalculorDialogs()
     window.show()
     app.exec()

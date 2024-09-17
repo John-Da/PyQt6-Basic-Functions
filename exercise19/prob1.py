@@ -35,10 +35,10 @@ class CalculatorFileDialog(EnhancedCalculator):
             self.lNum_input.setText(f"{float(sec_num):.0f}")
             
 
-    def _saveFile(self, path):
+    def _saveFile(self):
         path = os.path.dirname(__file__)
         os.chdir(path)
-        fileName = QFileDialog.getSaveFileName(self, 'Save file', path)
+        fileName = QFileDialog.getSaveFileName(self, 'Save file', str(Path.home()))
         if fileName[0]:
             with open(fileName[0], "w") as file:
                 file.write(self.result_label.toPlainText())
