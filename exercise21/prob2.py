@@ -46,20 +46,13 @@ class PaintingBoard(QMainWindow):
             "#800080": "Saturday",
         }
 
-        # self._createMenuBar()
         self.layouts.addWidget(self.label)
         self.layouts.addWidget(self.canvas_label)
         self._createBtn()
 
         container = QWidget()
         container.setLayout(self.layouts)
-
         self.setCentralWidget(container)
-
-    def _createMenuBar(self):
-        self.menuBar = self.menuBar()
-        self.menuBar.setNativeMenuBar(False)
-        self.fileMenu = self.menuBar.addMenu("Animation")
 
     def _createBtn(self):
         btn_layout = QHBoxLayout()
