@@ -53,7 +53,7 @@ class DrawingBoard(QMainWindow):
         )
 
         pen.setColor(QColor("red"))
-        painter.setFont(QFont('Decorative', 24))
+        painter.setFont(QFont('default', 24))
         painter.setPen(pen)
         painter.drawText(
             100, 100, 200, 200,
