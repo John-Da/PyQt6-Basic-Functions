@@ -16,11 +16,12 @@ class AnimationWindow(PaintingBoard):
         self.animation_action.setStatusTip("Move the label")
         
     def _createMenuBar(self):
+        os.chdir(os.path.dirname(__file__))
         self.menutoobar = self.menuBar()
         self.menutoobar.setNativeMenuBar(False)
         self.animation_menu_bar = self.menutoobar.addMenu("Animation")
         
-        self.animation_action = QAction(QIcon("exercise22/move-button.png"), "Move", self)
+        self.animation_action = QAction(QIcon("move-button.png"), "Move", self)
         self.animation_action.setShortcut(QKeySequence("Ctrl+Shift+M"))
         self.animation_menu_bar.addAction(self.animation_action)
         self.side_toolbar.addAction(self.animation_action)
